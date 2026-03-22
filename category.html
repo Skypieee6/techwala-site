@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<body class="bg-background text-on-surface">
+    <main class="pt-24 pb-16 max-w-7xl mx-auto px-4 md:px-6">
+        <div id="ad-top" class="mb-8 w-full h-24 bg-surface/30 flex items-center justify-center rounded-lg relative"><span class="absolute top-2 left-2 text-[10px]">Partner Content</span></div>
+
+        <div id="cat-hero" class="w-full py-12 px-8 rounded-2xl mb-12 flex flex-col items-center justify-center text-center transition-colors">
+            <h1 id="cat-title" class="text-5xl font-headline font-bold text-white mb-4">Loading...</h1>
+            <p id="cat-count" class="text-white/80 font-label">Fetching articles...</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-9">
+                <div id="cat-grid" class="grid md:grid-cols-2 gap-8"></div>
+                <div class="mt-12 flex justify-center gap-4">
+                    <button class="px-6 py-2 bg-surface rounded hover:bg-primary transition">Previous</button>
+                    <button class="px-6 py-2 bg-surface rounded hover:bg-primary transition">Next</button>
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <script>
+        const categoryColors = {'AI Tools': '8b5cf6', 'How-To': '06b6d4', 'Reviews': 'f59e0b', 'Security': 'ef4444', 'Earn Online': '10b981', 'News': '6366f1'};
+        const urlParams = new URLSearchParams(window.location.search);
+        const catQuery = urlParams.get('cat') || 'Gadgets';
+        
+        document.title = `${catQuery} Articles | TechWala`;
+        document.getElementById('cat-title').textContent = catQuery;
+        document.getElementById('cat-hero').style.backgroundColor = `#${categoryColors[catQuery] || '6366f1'}`;
+
+        async function loadCategory() {
+            try {
+                const res = await fetch('/content/articles/index.json');
+                const allArticles = await res.json();
+                const articles = allArticles.filter(a => a.category.toLowerCase() === catQuery.toLowerCase());
+                
+                document.getElementById('cat-count').textContent = `${articles.length} articles found`;
+                const container = document.getElementById('cat-grid');
+                container.innerHTML = '';
+
+                if(articles.length === 0) container.innerHTML = "<p>No articles found in this category.</p>";
+
+                articles.forEach(article => {
+                    const hex = categoryColors[article.category] || '6366f1';
+                    container.innerHTML += `
+                        <article class="flex flex-col group">
+                            <a href="article.html?slug=${article.slug}">
+                                <div class="aspect-[16/10] bg-surface overflow-hidden rounded-xl mb-4 relative">
+                                    <img src="https://placehold.co/400x250/1e293b/${hex}?text=${encodeURIComponent(article.category)}" class="w-full h-full object-cover">
+                                </div>
+                                <h4 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">${article.title}</h4>
+                            </a>
+                        </article>`;
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        }
+        loadCategory();
+    </script>
+</body>
+</html>

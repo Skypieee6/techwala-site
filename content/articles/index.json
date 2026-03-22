@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "sample-article",
+    "title": "The 2024 Ultimate Desk Setup Guide for Remote Devs",
+    "category": "Gadgets",
+    "metaDescription": "Why ergonomic chairs and vertical mice are the real productivity hacks of the new year.",
+    "publishedAt": "2024-01-15T10:00:00",
+    "readTime": 4,
+    "tags": ["remote-work", "hardware", "productivity"]
+  },
+  {
+    "slug": "ai-mistral-gpt4",
+    "title": "Mistral vs GPT-4: Better for Indian Languages?",
+    "category": "AI Tools",
+    "metaDescription": "A comprehensive benchmark testing Hindi, Bengali, and Tamil semantic understanding.",
+    "publishedAt": "2024-02-20T10:00:00",
+    "readTime": 8,
+    "tags": ["ai", "llm", "benchmark"]
+  },
+  {
+    "slug": "side-hustles",
+    "title": "5 Niche Side Hustles for Software Engineers in 2024",
+    "category": "Earn Online",
+    "metaDescription": "Moving beyond freelancing: The rise of micro-SaaS and digital infrastructure as a service.",
+    "publishedAt": "2024-03-01T10:00:00",
+    "readTime": 12,
+    "tags": ["saas", "income", "freelance"]
+  }
+]
