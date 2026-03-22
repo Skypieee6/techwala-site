@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Loading... | TechWala</title>
+    <meta name="description" content="Loading article...">
+    <meta property="og:title" content="TechWala Article">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script> /* Insert exact same tailwind config as index */ </script>
+    <style>
+        body{background-color:#0f172a;color:#f1f5f9; font-family: 'Manrope', sans-serif;}
+        .article-body p { margin-bottom: 1.5rem; color: #cbd5e1; }
+        .article-body h2 { font-size: 1.5rem; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem; color: white; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+    <main class="pt-24 pb-16 max-w-7xl mx-auto px-4 md:px-6">
+        <div class="text-sm font-label text-on-surface-variant mb-6">
+            <a href="index.html" class="hover:text-primary">Home</a> > 
+            <a href="#" id="bread-cat" class="hover:text-primary">Category</a> > 
+            <span id="bread-title" class="text-on-surface">Loading...</span>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12">
+            <article class="lg:col-span-9">
+                <header class="mb-8">
+                    <span id="art-cat" class="px-3 py-1 bg-surface rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">Category</span>
+                    <h1 id="art-title" class="text-4xl md:text-5xl font-headline font-bold leading-tight mb-6">Loading Article...</h1>
+                    <div class="flex items-center gap-4 text-sm text-on-surface-variant">
+                        <span id="art-date">Date</span> • <span id="art-read">-- min read</span>
+                    </div>
+                </header>
+
+                <div id="ad-top" class="mb-8 w-full h-24 bg-surface/30 border border-outline-variant/20 flex items-center justify-center rounded-lg relative"><span class="absolute top-2 left-2 text-[10px]">Partner Content</span></div>
+
+                <img id="art-img" class="w-full aspect-video rounded-xl object-cover mb-10 bg-surface" src="" alt="Thumbnail">
+
+                <div id="art-content" class="article-body text-lg leading-relaxed">
+                    <div class="animate-pulse bg-surface h-4 w-full mb-2"></div>
+                    <div class="animate-pulse bg-surface h-4 w-3/4 mb-6"></div>
+                </div>
+
+                <div class="mt-12 flex gap-4 border-t border-outline-variant/30 pt-8">
+                    <button class="px-4 py-2 bg-surface rounded hover:bg-primary transition">Twitter</button>
+                    <button class="px-4 py-2 bg-surface rounded hover:bg-[#25D366] transition">WhatsApp</button>
+                    <button class="px-4 py-2 bg-surface rounded hover:bg-[#0088cc] transition">Telegram</button>
+                </div>
+            </article>
+
+            <aside class="lg:col-span-3 space-y-12">
+                <div id="ad-sidebar" class="w-full aspect-[4/5] bg-surface/30 border flex items-center justify-center rounded-xl relative"><span class="absolute top-2 left-2 text-[10px]">Partner Content</span></div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const categoryColors = {'AI Tools': '8b5cf6', 'How-To': '06b6d4', 'Reviews': 'f59e0b', 'Security': 'ef4444', 'Earn Online': '10b981', 'News': '6366f1'};
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug');
+
+        async function loadArticle() {
+            if(!slug) return;
+            try {
+                const res = await fetch(`/content/articles/${slug}.json`);
+                const article = await res.json();
+                
+                // SEO / Meta
+                document.title = article.metaTitle || `${article.title} | TechWala`;
+                document.querySelector('meta[name="description"]').content = article.metaDescription;
+                
+                // Header Info
+                document.getElementById('bread-cat').textContent = article.category;
+                document.getElementById('bread-cat').href = `category.html?cat=${encodeURIComponent(article.category)}`;
+                document.getElementById('bread-title').textContent = article.title;
+                document.getElementById('art-title').textContent = article.title;
+                document.getElementById('art-cat').textContent = article.category;
+                
+                const hex = categoryColors[article.category] || '6366f1';
+                document.getElementById('art-cat').style.color = `#${hex}`;
+                document.getElementById('art-img').src = `https://placehold.co/800x450/1e293b/${hex}?text=${encodeURIComponent(article.category)}`;
+
+                const date = new Date(article.publishedAt).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'});
+                document.getElementById('art-date').textContent = date;
+                document.getElementById('art-read').textContent = `${article.readTime} min read`;
+
+                // Content & Ad Injection
+                let htmlContent = article.content;
+                let paragraphs = htmlContent.split('</p>');
+                if(paragraphs.length > 3) {
+                    const adHTML = `<div id="ad-incontent" class="my-8 w-full h-32 bg-surface/30 border border-outline-variant/10 flex items-center justify-center rounded-xl relative"><span class="absolute top-2 left-2 text-[10px] uppercase tracking-widest font-label text-on-surface-variant/30">Partner Content</span></div>`;
+                    paragraphs.splice(3, 0, adHTML);
+                    htmlContent = paragraphs.join('</p>');
+                } else {
+                    htmlContent += `<div id="ad-incontent" class="my-8 w-full h-32 bg-surface/30 border flex items-center justify-center rounded-xl relative">...</div>`;
+                }
+                document.getElementById('art-content').innerHTML = htmlContent;
+
+            } catch (e) {
+                document.getElementById('art-content').innerHTML = "Article not found.";
+            }
+        }
+        loadArticle();
+    </script>
+</body>
+</html>
