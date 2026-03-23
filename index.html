@@ -163,9 +163,13 @@
         <button class="p-2 touch-target bg-surface/50 rounded-lg" id="searchBtn">
           <span class="material-symbols-outlined">search</span>
         </button>
-        <button class="p-2 touch-target bg-surface/50 rounded-lg">
+        <div class="relative hidden lg:block" id="searchForm">
+          <input class="bg-surface/50 border border-outline-variant/30 rounded-lg py-2 pl-4 pr-10 text-sm focus:ring-2 focus:ring-primary w-48 xl:w-64 text-on-surface placeholder-on-surface-variant/50" placeholder="Search tech..." type="text" id="searchInput" />
+          <span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant text-lg pointer-events-none">search</span>
+        </div>
+        <a href="about.html" class="p-2 touch-target bg-surface/50 rounded-lg">
           <span class="material-symbols-outlined">account_circle</span>
-        </button>
+        </a>
       </div>
     </div>
   </nav>
@@ -216,7 +220,7 @@
       <div class="grid gap-4 md:grid-cols-2">
         <!-- Article 1 -->
         <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
-          <a href="https://techcrunch.com/2026/03/23/someone-has-publicly-leaked-an-exploit-kit-that-can-hack-millions-of-iphones/" target="_blank" class="block">
+          <a href="article.html?slug=iphone-exploit-2026" class="block">
             <div class="aspect-video overflow-hidden">
               <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800" alt="iPhone Exploit Kit" class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -231,7 +235,7 @@
 
         <!-- Article 2 -->
         <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
-          <a href="https://techcrunch.com/2026/03/23/zipline-snaps-up-another-200m-to-fuel-its-drone-delivery-expansion/" target="_blank" class="block">
+          <a href="article.html?slug=zipline-drones-2026" class="block">
             <div class="aspect-video overflow-hidden">
               <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=800" alt="Zipline Drone" class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -246,7 +250,7 @@
 
         <!-- Article 3 -->
         <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
-          <a href="https://techcrunch.com/2026/03/23/bernie-sanders-ai-gotcha-video-flops-but-the-memes-are-great/" target="_blank" class="block">
+          <a href="article.html?slug=ai-video-memes-2026" class="block">
             <div class="aspect-video overflow-hidden">
               <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI Technology" class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -261,7 +265,7 @@
 
         <!-- Article 4 -->
         <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
-          <a href="https://techcrunch.com/2026/03/23/apple-wwdc-june-8-12-ai-advancements-siri-developers-conference/" target="_blank" class="block">
+          <a href="article.html?slug=apple-wwdc-2026" class="block">
             <div class="aspect-video overflow-hidden">
               <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800" alt="Apple WWDC" class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -276,7 +280,7 @@
 
         <!-- Article 5 -->
         <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
-          <a href="https://techcrunch.com/2026/03/23/startup-gimlet-labs-is-solving-the-ai-inference-bottleneck-in-a-surprisingly-elegant-way/" target="_blank" class="block">
+          <a href="article.html?slug=ai-inference-breakthrough-2026" class="block">
             <div class="aspect-video overflow-hidden">
               <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI Inference" class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -291,7 +295,7 @@
 
         <!-- Article 6 -->
         <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
-          <a href="https://techcrunch.com/2026/03/23/sam-altman-openai-fusion-energy-board-helion/" target="_blank" class="block">
+          <a href="article.html?slug=fusion-energy-openai-2026" class="block">
             <div class="aspect-video overflow-hidden">
               <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Fusion Energy" class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -299,6 +303,96 @@
               <span class="text-[10px] font-bold text-primary uppercase mb-2 block">Energy</span>
               <h3 class="text-base font-headline font-bold mb-2 leading-tight">Sam Altman-Backed Fusion Startup in Talks to Sell Power to OpenAI</h3>
               <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">Helion is in talks to sell fusion power to OpenAI, potentially revolutionizing energy.</p>
+              <span class="text-xs text-primary font-bold">Read More →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 7 -->
+        <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
+          <a href="article.html?slug=quantum-computing-2026" class="block">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Quantum Computing" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold text-primary uppercase mb-2 block">AI</span>
+              <h3 class="text-base font-headline font-bold mb-2 leading-tight">Quantum Computing Reaches Major Milestone</h3>
+              <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">Quantum computing achieves significant breakthrough with practical applications emerging.</p>
+              <span class="text-xs text-primary font-bold">Read More →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 8 -->
+        <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
+          <a href="article.html?slug=metaverse-2026" class="block">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Metaverse" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold text-primary uppercase mb-2 block">Gadgets</span>
+              <h3 class="text-base font-headline font-bold mb-2 leading-tight">Metaverse Adoption Surges as Virtual Workspaces Take Hold</h3>
+              <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">Metaverse adoption accelerates as companies embrace virtual workspaces and collaboration.</p>
+              <span class="text-xs text-primary font-bold">Read More →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 9 -->
+        <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
+          <a href="article.html?slug=ai-chips-2026" class="block">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="AI Chips" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold text-primary uppercase mb-2 block">Gadgets</span>
+              <h3 class="text-base font-headline font-bold mb-2 leading-tight">AI Chip Market Explodes as Demand Soars</h3>
+              <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">AI chip market experiences explosive growth as demand for AI accelerators reaches unprecedented levels.</p>
+              <span class="text-xs text-primary font-bold">Read More →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 10 -->
+        <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
+          <a href="article.html?slug=cybersecurity-2026" class="block">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Cybersecurity" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold text-primary uppercase mb-2 block">Security</span>
+              <h3 class="text-base font-headline font-bold mb-2 leading-tight">Cybersecurity Landscape Transformed by AI-Powered Threats</h3>
+              <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">AI-powered cybersecurity threats transform the digital security landscape.</p>
+              <span class="text-xs text-primary font-bold">Read More →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 11 -->
+        <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
+          <a href="article.html?slug=robotics-2026" class="block">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Robotics" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold text-primary uppercase mb-2 block">Gadgets</span>
+              <h3 class="text-base font-headline font-bold mb-2 leading-tight">Robotics Revolution Accelerates with Advanced AI Integration</h3>
+              <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">Robotics revolution accelerates as advanced AI integration transforms industrial and service robots.</p>
+              <span class="text-xs text-primary font-bold">Read More →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 12 -->
+        <article class="bg-surface rounded-xl overflow-hidden border border-outline-variant/20 touch-target">
+          <a href="article.html?slug=blockchain-2026" class="block">
+            <div class="aspect-video overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Blockchain" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold text-primary uppercase mb-2 block">AI Tools</span>
+              <h3 class="text-base font-headline font-bold mb-2 leading-tight">Blockchain Technology Finds Mainstream Adoption in 2026</h3>
+              <p class="text-sm text-on-surface-variant mb-3 line-clamp-2">Blockchain technology achieves mainstream adoption across industries in 2026.</p>
               <span class="text-xs text-primary font-bold">Read More →</span>
             </div>
           </a>
@@ -325,13 +419,13 @@
       <div class="text-2xl font-bold text-primary font-headline mb-2">TechWala</div>
       <p class="text-sm text-on-surface-variant mb-4">© 2026 TechWala. Your source for latest tech news and insights.</p>
       <div class="flex justify-center gap-4">
-        <a href="#" class="w-10 h-10 bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-all touch-target rounded-full">
+        <a href="https://twitter.com/techwala" target="_blank" class="w-10 h-10 bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-all touch-target rounded-full">
           <span class="material-symbols-outlined">share</span>
         </a>
-        <a href="#" class="w-10 h-10 bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-all touch-target rounded-full">
+        <a href="https://feeds.feedburner.com/techwala" target="_blank" class="w-10 h-10 bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-all touch-target rounded-full">
           <span class="material-symbols-outlined">rss_feed</span>
         </a>
-        <a href="#" class="w-10 h-10 bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-all touch-target rounded-full">
+        <a href="mailto:contact@techwala.com" class="w-10 h-10 bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-all touch-target rounded-full">
           <span class="material-symbols-outlined">mail</span>
         </a>
       </div>
@@ -364,12 +458,52 @@
       });
     });
 
+    // Search Functionality
+    const searchBtn = document.getElementById('searchBtn');
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const articles = document.querySelectorAll('#news article');
+
+    searchBtn.addEventListener('click', () => {
+      searchForm.classList.toggle('hidden');
+      if (!searchForm.classList.contains('hidden')) {
+        searchInput.focus();
+      }
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      articles.forEach(article => {
+        const title = article.querySelector('h3').textContent.toLowerCase();
+        const category = article.querySelector('span').textContent.toLowerCase();
+        const content = article.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || category.includes(searchTerm) || content.includes(searchTerm)) {
+          article.style.display = 'block';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    });
+
     // Newsletter Form
     const newsletterForm = document.querySelector('form');
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = newsletterForm.querySelector('input').value;
-      alert(`Thanks for subscribing with: ${email}`);
+      
+      // Create thank you message
+      const thankYouDiv = document.createElement('div');
+      thankYouDiv.className = 'fixed top-20 left-4 right-4 bg-green-500 text-white p-4 rounded-lg text-center z-50';
+      thankYouDiv.textContent = `🎉 Thank you for subscribing with: ${email}`;
+      document.body.appendChild(thankYouDiv);
+      
+      // Remove message after 3 seconds
+      setTimeout(() => {
+        thankYouDiv.remove();
+      }, 3000);
+      
       newsletterForm.reset();
     });
 

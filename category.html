@@ -21,9 +21,9 @@
     </main>
 
     <script>
-        const categoryColors = {'AI Tools': '8b5cf6', 'How-To': '06b6d4', 'Reviews': 'f59e0b', 'Security': 'ef4444', 'Earn Online': '10b981', 'News': '6366f1'};
-        const urlParams = new URLSearchParams(window.location.search);
-        const catQuery = urlParams.get('cat') || 'Gadgets';
+const categoryColors = {'AI Tools': '8b5cf6', 'How-To': '06b6d4', 'Reviews': 'f59e0b', 'Security': 'ef4444', 'Earn Online': '10b981', 'News': '6366f1', 'Gadgets': '06b6d4', 'Transportation': '10b981', 'Apple': 'f59e0b', 'Energy': 'ef4444'};
+    const urlParams = new URLSearchParams(window.location.search);
+    const catQuery = urlParams.get('cat') || 'Gadgets';
         
         document.title = `${catQuery} Articles | TechWala`;
         document.getElementById('cat-title').textContent = catQuery;
