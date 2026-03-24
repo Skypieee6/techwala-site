@@ -1,0 +1,13 @@
+name = "techwala-news-updater"
+main = "worker.js"
+compatibility_date = "2026-03-22"
+
+[env.production]
+vars = { CF_TOKEN = "cfut_8UVUhWwpdFGxMwxcwA2lUWcPDWjn695pledRk7cZ7fe1882e" }
+
+kv_namespaces = [
+  { binding = "KV_NAMESPACE", id = "your-kv-namespace-id" }
+]
+
+[env.production.cron]
+"0 6 * * *" = "techwala-news-updater"
